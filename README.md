@@ -25,7 +25,7 @@ totalSalesValue = 0  # 매출총액
 
 # 돈계산 함수
 def calcMoney(userMoney, coffee, quantity):
-  global totalSalesValue
+  global totalSalesValue # 전역변수선언
 
   totalPrice = coffee['price'] * quantity  # 총 금액 계산
 
@@ -40,7 +40,7 @@ def calcMoney(userMoney, coffee, quantity):
     return userMoney
 
 
-# 관리자 모드 함수 (추가/수정/삭제 메뉴 적용)
+# 관리자 모드 함수 (추가/수정/삭제)
 def adminMode():
   while True:
     print("""
@@ -50,7 +50,7 @@ def adminMode():
     [3] 커피 삭제
     [4] 종료
     """)
-    try:
+    try: # try-catch 같은거
       choice = int(input("작업을 선택하세요: "))
       if choice == 1:
         addCoffee()
@@ -63,7 +63,7 @@ def adminMode():
         break
       else:
         print("유효한 번호를 입력하세요.")
-    except ValueError:
+    except ValueError: # 예외처리
       print("숫자를 입력해주세요.")
 
 
@@ -189,7 +189,7 @@ def sellCoffee():
 while True:
   print("""
     [1] 관리자 모드
-    [2] 장사 모드
+    [2] 장사 시작
     [3] 종료
     """)
   mode = input("모드를 선택하세요: ")
